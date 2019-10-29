@@ -1,0 +1,26 @@
+using System;
+					
+public class Program
+{
+	public static void Main()
+	{
+		A obj = new A();
+		Console.WriteLine(obj.c);
+	
+	}
+}
+ class A
+ {
+	 private float a = 3.7f;
+	 private float b = 6.4f;
+	 
+	 public float c
+	 {
+		 get {return a*=b;
+			  c++;
+			  a/b;
+			 }
+	 }
+	 
+	 
+ }
