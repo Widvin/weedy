@@ -17,13 +17,8 @@ public class Program
 	 public float c
 	 {
 		 get {return a*=b;
-			  c++;
-			  a/b;
+			  
 			 }
 	 }
 	 
-	 public class B: A
-	 {
-		 public B(float d): base(d) {} public B():
-		 for(int i=0; i<10; i++) Console.Write(i);
-	 }}
+	 }
