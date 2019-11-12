@@ -23,14 +23,20 @@ public class Program
 	 }
 	 
 		 public class B: A {
-		 private decimal d;
+		 private float d;
 		 
-		 public B (decimal b, decimal d): base(a,b){
+		 public B (float b, float d): base(a,b){
 			 this.d = d;
 		 }
 		 
-	 public decimal c2(){
-		 		 
+	 public float c2(){
+		 int i;
+		 	for (i=0;i<10;i++) Console.WriteLine(i);
+             } 
 	 }
+        public float d {
+            get{return d;}
+            set {d = value;}
+        }
 	 }
- }
+ 
