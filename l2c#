@@ -1,4 +1,5 @@
 using System;
+using System;
 					
 public class Program
 {
@@ -6,37 +7,35 @@ public class Program
 	{
 		A obj = new A();
 		Console.WriteLine(obj.c);
-		
+	
 	}
-}
- class A
+
+ public class A
  {
-	 private float a = 3.7f;
-	 private float b = 6.4f;
+	 public float a = 3.7f;
+	 public float b = 6.4f;
 	 
 	 public float c
 	 {
-		 get {return a*b;
-				
-			 }
-		 
+		 get {return a*=b; }
 	 }
 	 
-		 public class B: A {
-		 private float d;
-		 
-		 public B (float b, float d): base(a,b){
-			 this.d = d;
-		 }
-		 
-	 public float c2(){
-		 int i;
-		 	for (i=0;i<10;i++) Console.WriteLine(i);
-             } 
-	 }
-        public float d {
-            get{return d;}
-            set {d = value;}
-        }
-	 }
- 
+ public class B:A
+ {  public B(float a, float b, float d):base(a,b) 
+
+     {
+         
+     }
+
+ }
+ public float c2() {
+     get {return d;}
+ }
+ public float d {
+     int i;
+     for (i = 0; i < 10; i++)
+     {
+         Console.WriteLine(i);
+     }
+ }
+  
