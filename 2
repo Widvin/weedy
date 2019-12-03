@@ -1,0 +1,36 @@
+					
+public class Program
+{
+	public static void Main()
+	{
+		A obj = new A();
+		Console.WriteLine(obj.c);
+	
+	}
+
+ public class A
+ {
+	 public float a = 3.7f;
+	 public float b = 6.4f;
+	 
+	 public float c
+	 {
+		 get {return a*=b; }
+	 }
+	 
+
+public class B:A{
+    public float d;
+
+    public float c2{
+        get{return a + b + d;}
+        set{c2 = value;}
+    }
+
+    public B(float a, float b, float d) : base(a,b){
+        this.d = d;
+       
+    }
+}
+ }
+} 
