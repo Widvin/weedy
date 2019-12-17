@@ -1,36 +1,56 @@
 					
-public class Program
-{
-	public static void Main()
-	{
-		A obj = new A();
-		Console.WriteLine(obj.c);
+using System;
 	
+	public class A
+	{
+		public float a;
+		public float b;
+		
+		public A(float a, float b)
+		{
+			this.a = a;
+			this.b = b;
+		}
+		
+		public float c
+		{
+			get { return a *= b; }
+			set { c = value; }
+		}
+		
+		public float c1
+		{
+			get { return a++; }
+			set { c = value; }
+		}
 	}
 
- public class A
- {
-	 public float a = 3.7f;
-	 public float b = 6.4f;
-	 
-	 public float c
-	 {
-		 get {return a*=b; }
-	 }
-	 
 
-public class B:A{
-    public float d;
-
-    public float c2{
-        int i;
-		 	for (i=0;i<10;i++) Console.WriteLine(i);
-    }
-
-    public B(float a, float b, float d) : base(a,b){
-        this.d = d;
-       
-    }
-}
- }
-} 
+	public class B : A {
+		public float d;
+		
+		public float c2
+		{
+			get { return a + b + d; }
+			set { c2 = value; }
+		}
+		
+		public B(float a, float b, float d) :
+		base(a, b)
+		{
+			this.d = d;
+		}
+		
+		public static void Main(string[] args)
+		{
+			B b = new B(9, 3, 1);
+			
+			for(int i=0;i<2;i++)
+			{
+				Console.WriteLine(b.c);
+				Console.WriteLine(b.c1);
+				Console.WriteLine(b.c2);
+			}
+			
+		}
+	}
