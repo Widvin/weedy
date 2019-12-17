@@ -1,0 +1,56 @@
+using System;
+ 
+class B
+{
+    public int x,y;
+    public B() { x = y = 0; } 
+    public B(int i, int j) 
+    {
+        x = i;
+        y = j;
+    }
+ 
+    public static bool operator true(B op) 
+    {
+        if ((op.x != 0) || (op.y != 0)) 
+        {
+            return true;
+            
+        }
+        else
+            return false;
+    }
+  
+    public static bool operator false(B op)
+    {
+        if ((op.x == 0) && (op.y == 0))
+        {
+            return true;
+        }
+        else
+            return false;
+    }
+	
+}
+ 
+
+   public class Program
+    {
+      public static void Main(string[] args)
+        {
+            B a = new B(1,1);
+            B b = new B(0,0);
+ 
+            Console.Write("a = ");
+            Console.WriteLine(a.x + "," + a.y);
+            Console.Write("b = ");
+            Console.WriteLine(b.x + "," + b.y);
+		  
+		  	 
+            if (a) Console.WriteLine("a - it's true");
+            else Console.WriteLine("a - it's faulse");
+            if (b) Console.WriteLine("b - it's true");
+            else Console.WriteLine("b - it's faulse");
+            
+        }
+    }
