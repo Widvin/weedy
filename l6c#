@@ -1,0 +1,107 @@
+using System;
+using System.Collections.Generic;
+
+namespace ConsoleApplication1
+{
+	
+class Human : IComparable<Human> {
+	public string surname {get; set;}
+	public DateTime birthDay {get; set;}
+	public string status {get; set;}
+
+	public Human(string surname, DateTime birthDay, string status){
+		this.surname = surname;
+		this.birthDay = birthDay;
+		this.status = status;
+	}
+	
+	public Human(){
+		surname = "null";
+		birthDay = DateTime.Today;
+		status = "null";
+	}
+	
+	
+      public override string ToString() 
+        {   
+		  int age = DateTime.Now.Year - this.birthDay.Year;
+            return string.Format("Фамилия: {0}\nSurname: {1}\nStatus: {2}\n", this.surname, age, this.status);
+        }
+
+        public int CompareTo(Human obj)
+        {
+            if (this.birthDay > obj.birthDay)
+                return 1;
+            if (this.birthDay < obj.birthDay)
+                return -1;
+            else
+                return 0;
+        }
+	
+
+}
+	
+   class Student : Human {
+	   public int math {get; set;}
+	   public int physics {get; set;}
+	   public int history {get; set;}
+	   
+	   public Student(string surname, DateTime birthDay, string status, int math, int physics, int history) :
+		base(surname, birthDay, status)
+		{
+			this.math = math;
+			this.physics = physics;
+			this.history = history;
+		}
+	   
+		public int mid
+		{
+			get { return (math + physics + history)/3; }
+			set { mid = value; }
+		}
+	   
+	    public override string ToString() 
+        {   
+		  int age = DateTime.Now.Year - this.birthDay.Year;
+          return string.Format("Surname: {0}\nAge: {1}\nStatus: {2}\nGrade: {3}", this.surname, age, this.status, this.mid);
+        }
+	   
+   }
+	
+	
+
+	public class Program
+	{
+		public static void Main(string[] args)
+		{
+			List<Human> dic = new List<Human>();
+			
+			dic.Add(new Human());
+			dic.Add(new Human("Koul", new DateTime(1997, 11, 10), "Student"));
+            dic.Add(new Human("Olienson", new DateTime(1999, 05, 11), "Student"));
+			
+			Console.WriteLine("List: \n");
+            foreach (Human a in dic)
+                Console.WriteLine(a);
+			
+			Console.WriteLine("\nSorting by age: \n");
+            dic.Sort();
+            foreach (Human a in dic)
+                Console.WriteLine(a);
+
+			List<Student> dis = new List<Student>();
+
+			dis.Add(new Student("Koul", new DateTime(1999, 07, 10), "Student", 7, 5, 6));
+            dis.Add(new Student("Olienson", new DateTime(1995, 01, 01), "Student", 8, 9, 7));
+
+			Console.WriteLine("List: \n");
+            foreach (Student b in dis)
+                Console.WriteLine(b);
+			
+			Console.WriteLine("\nSorting by age: \n");
+            dis.Sort();
+            foreach (Student b in dis)
+                Console.WriteLine(b);
+        }
+    	}
+}
