@@ -1,0 +1,59 @@
+using System;
+					
+public class Program
+{
+	public static void Main(string[] args)
+	{
+		var classB = new B();
+		for (int i = 1; i < 10; i++)
+		{
+			Console.Write("{0} ",classB[i]);
+		}
+			
+    	Console.WriteLine();
+		Console.WriteLine();
+		Console.WriteLine();
+    	for (int i = 0; i < 10; i++)
+    	{
+        	Console.Write("{0} ", classB[(short)i]);
+    	}
+    	Console.WriteLine();
+		Console.WriteLine();
+		Console.WriteLine();
+ 
+    	C<string>.F = "String";
+    	C<int>.F = 10;
+    	Console.WriteLine("{0} {1}", C<string>.F, C<int>.F);
+
+	}
+}
+
+	class B
+	{
+		Int32[] arr_1;
+    		Int32[] arr_2 = new Int32[] { 10, 11, 12, 13, 14, 15, 16, 17, 18, 19 };
+ 
+    		public B()
+    		{
+        		arr_1 = new Int32[] { 0, 1, 2, 3, 4, 5, 6, 7, 8, 9 };
+    		}
+ 
+    		public Int32 this[Int32 index]
+    		{
+        		set { arr_1[index] = value; }
+        		get { return arr_1[index]; }
+    		}
+ 
+    		public Int32 this[short index2]
+    		{
+        		set { arr_2[index2] = value; }
+        		get { return arr_2[index2]; }
+    		}
+ 
+	}
+ 
+	class C<T>
+	{
+    		static public T F;
+	}
+
